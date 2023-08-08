@@ -52,10 +52,10 @@ public class SampleController {
 	@GetMapping("/test")
 	public Flux<String> test() {
 		return Flux.range(1, 1000)
-			.flatMap(i -> callApi());
+			.flatMap(i -> callWebClientApi());
 	}
 
-	public Mono<String> callApi() {
+	public Mono<String> callWebClientApi() {
 		return webClientBuilder
 			.build()
 			.post()
